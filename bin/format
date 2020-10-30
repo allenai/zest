@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+
+# Format the code.
+#
+# This script runs "black", the python code formatter, on all the code.
+
+set -e
+
+
+# Fetch the root and construct the list of targets.
+
+ROOT=$(git rev-parse --show-toplevel)
+
+TARGETS="$($ROOT/bin/targets)"
+
+
+# Run the formatter.
+
+for TARGET in $TARGETS
+do
+    echo "Formatting $TARGET"
+    black \
+        --line-length 80 \
+        --target-version py36 \
+        --safe \
+        $TARGET
+done

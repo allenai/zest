@@ -1,0 +1,34 @@
+{
+    "AutoApprovalDelayInSeconds": 300,
+    "AssignmentDurationInSeconds": 2400,
+    "Reward": "0.75",
+    "Title": "Changing the Meaning of Questions",
+    "Keywords": "Questions, Creating, Activities, Editing, Changing, Meaning",
+    "Description": "Change the meaning of questions by editing as few words as possible",
+    "QualificationRequirements": [
+        {
+          "QualificationTypeId": "00000000000000000040",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            5000
+          ],
+          "RequiredToPreview": false
+        },
+        {
+          "QualificationTypeId": "000000000000000000L0",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            99
+          ],
+          "RequiredToPreview": false
+        },
+        {
+          "QualificationTypeId": "00000000000000000071",
+          "Comparator": "EqualTo",
+          "LocaleValues": [{
+              "Country": "US"
+            }],
+          "RequiredToPreview": true
+        }
+      ]
+}

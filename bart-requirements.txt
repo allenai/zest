@@ -1,0 +1,3 @@
+# note: PTL upgrades tensorboard which breaks version compatible with tensorflow==1.15 that is installed for T5
+pytorch-lightning==0.9.0
+test-tube==0.7.5

@@ -1,0 +1,42 @@
+{
+    "AutoApprovalDelayInSeconds": 300,
+    "AssignmentDurationInSeconds": 3600,
+    "Reward": "0.80",
+    "Title": "Combining Questions",
+    "Keywords": "Questions, Creating, Generating, Writing, Combinations",
+    "Description": "Create questions by combining other questions",
+    "QualificationRequirements": [
+        {
+          "QualificationTypeId": "00000000000000000040",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            5000
+          ],
+          "RequiredToPreview": false
+        },
+        {
+          "QualificationTypeId": "000000000000000000L0",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            99
+          ],
+          "RequiredToPreview": false
+        },
+        {
+          "QualificationTypeId": "00000000000000000071",
+          "Comparator": "EqualTo",
+          "LocaleValues": [{
+              "Country": "US"
+            }],
+          "RequiredToPreview": true
+        },
+        {
+          "QualificationTypeId": "3M3HXOD6K9394JG7PUA1AFZAECQI75",
+          "Comparator": "EqualTo",
+          "IntegerValues": [
+            1
+          ],
+          "RequiredToPreview": true
+        }
+      ]
+}

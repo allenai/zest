@@ -1,0 +1,639 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>
+              Writing Questions Based on Attributes<br />
+            </h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>
+                    We are looking for workers who can annotate more for us 
+                    (and we will give bonuses to those that are high quality). <strong>Expected Time: 10 minutes</strong>.
+                  </p>
+                  <p>
+                    In this HIT you will write the main topic of the question, a few attributes of that topic, and potential values
+                    that those attributes can take (see examples).  Then you will combine those attributes with the original
+                    question in order to create a new question that will have a different answer.
+                  </p>
+                  <p>
+                    The main topic of your question should be able to have <strong>multiple answers</strong>. If you're asked to find the main topic of a given question 
+                    and the question is yes/no, this may be hard to think of offhand.  Instead, rephrase the question as the main topic.
+                     For example, with the question: '{{ question_yes_no_for_main }}' the main topic could be '{{ question_yes_no_for_main_example }}'.
+                     A bad main topic would be ''{{ question_yes_no_for_main_bad }}' since it only could have one answer (yes or no).
+                  </p>
+                  <p>
+                    You will find that all questions use the phrase &ldquo;{{ domain_blank }}&rdquo; in
+                    place of an actual {{ domain }} name. We do this so that you
+                    could ask this question for each {{ domain }}.  Please keep this
+                    phrase in your new questions.
+                  </p>
+                  <p>
+                    The more your attributes interact with each other the better.  For example, the attributes of &ldquo;{{ topic_one }}&rdquo;
+                    could be {{ topic_one_attributes_good }} (this is good, since the second attribute relates to the first) or they could be
+                    {{ topic_one_attributes_bad }} (where neither attribute depends on the other).  However, this is not required.
+                  </p>
+                  <p>
+                    If the values you write for the attribute contain all possible answers (such as a multiple-choice answer), select the box
+                    &ldquo;{{ all_answers }}&rdquo;.
+                  </p>
+                  <p>
+                    The main topic of the attribute should <strong>NOT</strong> be {{ domain }}. See the examples for details.
+                  </p>
+                  <p> 
+                   <strong>Please read the examples.</strong> Only 1/5 of your questions will 
+                   require 3 attributes like the example below, but we wanted to show you an example of it.
+                  </p>
+                  <div class="card">
+                    <div class="card-header" id="heading1">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Question <strong>Example</strong>: {{ intro_example_main_question }}
+                        </button>
+                    </div>
+
+                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <div class="form-group card-text">
+                            <label>
+                              In one word or phrase, describe the main object/thing/topic that this question asks about:
+                            </label>
+                            <input class="form-control" type="text" disabled value="{{ topic_intro }}"><br>
+                          <p class="card-text"> 
+                            Please describe 3 aspects of the main object/topic:
+                          </p>
+                                  
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 1:
+                                
+                              </label>
+                              <input class="form-control" type="text" value="{{ into_attr_one }}" disabled>
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ intro_attr_one_values }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers: <strong>NOTE: this is not checked</strong>
+                              </label>
+                              <input class="form-control" type="checkbox" disabled>
+                            </div>
+                          </div>
+                        
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 2:
+                                (can you relate it to #1?) 
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ intro_attr_two }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ intro_attr_two_values }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled checked={{ intro_attr_two_checked }}>
+                            </div>
+                          </div>
+
+                           <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 3:
+                                (can you relate it to #1?) 
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ intro_attr_three }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ intro_attr_three_values }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled checked="{{ intro_attr_three_checked }}">
+                            </div>
+                          </div>
+                        
+                        </div>
+                        <div class="form-group card-text">
+                          <label for="main1">
+                            Final Answer (combine the above attributes) SCROLL FOR FULL QUESTION :
+                          </label>
+                          <input class="form-control" type="text" disabled value="{{ intro_example_final_questions }}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      Use a variety of attribute types: attributes that have
+                      yes or no answers, attributes that are multiple choice, 
+                      or attributes that have a wide range of answers (such as the length or type of
+                      of something).
+                    </li>
+                    <br />
+                    <li>
+                      <strong>Do not use subjective questions</strong> such as {{ domain_subjective_question }}
+                      Please also avoid questions that have the same answer for everything
+                      such as {{ domain_same_answer_question }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="examples-body" class="card-body collapse">
+                  <h3>
+                    Example:
+                  </h3>
+                  <div class="card">
+                    <div class="card-header" id="heading1">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Question <strong>Example</strong>: {{ structure_example }}
+                        </button>
+                    </div>
+
+                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <div class="form-group card-text">
+                            <label>
+                              In one word or phrase, describe the main object/thing/topic that this question asks about:
+                            </label>
+                            <input class="form-control" type="text" disabled value="{{ structure_main_object }}"><br>
+                          <p class="card-text"> 
+                            Please describe 3 aspects of the main object/topic:
+                          </p>
+                                  
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 1:
+                                
+                              </label>
+                              <input class="form-control" type="text" value="{{ structure_attribute_yes_no }}" disabled>
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="Yes,No">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled checked=checked>
+                            </div>
+                          </div>
+                        
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 2:
+                                (can you relate it to #1?) 
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_attribute_many }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_values_many }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled>
+                            </div>
+                          </div>
+
+                           <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 3:
+                                (can you relate it to #1?) 
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_attribute_multi }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_attribute_multi_values }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" checked=checked disabled>
+                            </div>
+                          </div>
+                        
+                        </div>
+                        <div class="form-group card-text">
+                          <label>
+                            Final Answer (combine the above attributes):
+                          </label>
+                          <input class="form-control" type="text" disabled value="{{ structure_final_question }}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+
+                  <h3>
+                   Explanations for Example:
+                  </h3>
+                  <dl>
+                    <dt>
+                       The main object/thing/topic that this question asks about:
+                    </dt>
+                    <dd>
+                      (Bad Answers) A bad answer to this question would be &ldquo;{{ structure_not_object }}&rdquo; since
+                      it is not the main focus of the question.  The answer &ldquo;{{ structure_bad_long }}&rdquo; would
+                      also be a bad response since it adds unnecessary words.
+                    </dd>
+                    <dt>
+                      Attribute 1: yes or no attribute:
+                    </dt>
+                    <dd>
+                      (Good Answers) The values for this attribute should be "Yes,No".  You should select the box 
+                      &ldquo;{{ all_answers }}&rdquo; for this value type since it holds all the values the attribute could possibly take.
+                    </dd>
+                    <dt>
+                      Attribute 2: many possible values attribute:
+                    </dt>
+                    <dd>
+                      (Bad Attribute) A bad attribute would be &ldquo;{{ structure_bad_attribute_many }}&rdquo; since it is not direcly
+                      part of the attribute &ldquo;{{ structure_attribute_yes_no }}&rdquo;.
+                    </dd>
+                    <dt>
+                      Attribute 2 Values:
+                    </dt>
+                    <dd>
+                      (Bad Values) A bad list of values for this attribute would be &ldquo;{{ structure_bad_values_many }}&rdquo;
+                       as it is not specific.
+                    </dd>
+                    <dt>
+                     Attribute 3: multiple choice attribute:
+                    </dt>
+                    <dd>
+                      (Good Answers) You should select the box &ldquo;{{ all_answers }}&rdquo; for this value type, as those are all options
+                      (that I can think of, at least).
+                    </dd>
+                  </dl>
+                  <br />
+
+                  <h3>
+                    Bad Example (Do not do this, these attributes don't relate to the main object)
+                  </h3>
+                  <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Question <strong>Bad Example</strong>: {{ structure_bad_example }}
+                        </button>
+                    </div>
+
+                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <div class="form-group card-text">
+                            <label">
+                              In one word or phrase, describe the main object/thing/topic that this question asks about:
+                            </label>
+                            <input class="form-control" type="text" disabled value="{{ structure_bad_example_main_object }}"><br>
+                          <p class="card-text"> 
+                            Please describe 3 aspects of the main object/topic:
+                          </p>
+                                  
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 1:
+                                
+                              </label>
+                              <input class="form-control" type="text" value="{{ structure_bad_example_attribute_yes_no }}" disabled>
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="Yes,No">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled checked=checked>
+                            </div>
+                          </div>
+                        
+                          <div class="form-row">
+                            <div class="col">
+                              <label>
+                              Attribute 2:
+                                (can you relate it to #1?) 
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_bad_example_attribute_many }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                  Possible Values:
+                              </label>
+                              <input class="form-control" type="text" disabled value="{{ structure_bad_example_values_many }}">
+                            </div>
+                            <div class="col">
+                              <label>
+                                    Values box contains all possible answers:
+                              </label>
+                              <input class="form-control" type="checkbox" disabled>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Make sure to read the <strong>Instructions</strong>,
+                        <strong>Tips &amp; Gotchas</strong>, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                    </div>
+                    <div class="col-md-12">
+                      <p>
+                        Please follow the prompts below, creating as <strong>natural of a question as you can</strong>:
+                      </p>
+                      <p>
+                        **Remember {{ domain }}(s) should <strong>NOT</strong> be the main object.**
+                      </p>
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                        
+                          {% for idx in range(q_to_change | length) %}
+                          <input
+                              type="hidden"
+                              value="{{ q_to_change[loop.index0] }}"
+                              name="originalQ{{ idx }}"
+                              id="originalQ{{ idx }}"
+                            />
+                          <div class="card">
+                            <div class="card-header" id="heading{{ idx }}">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ idx }}" aria-expanded="true" aria-controls="collapse{{ idx }}">
+                                    Question <strong>{{ idx + 1 }}/{{ q_to_change | length }}</strong>: {{ q_to_change[loop.index0] }}
+                                </button>
+                            </div>
+
+                            <div 
+                              id="collapse{{ idx }}" class="collapse show"
+                              aria-labelledby="heading{{ idx }}" data-parent="#accordionExample"
+                            >
+                              <div class="card-body">
+                                  <div class="form-group card-text">
+                                    <label for="main{{ idx }}">
+                                      In one word or phrase, describe the main object/thing/topic that this question asks about:
+                                    </label>
+                                    <input
+                                      id="main{{ idx }}"
+                                      class="form-control"
+                                      type="text"
+                                      name="main{{ idx }}"
+                                      pattern="^((\w+ ?){1,4})$"
+                                      title="Please re-read the instructions"
+                                      oninvalid="this.setCustomValidity('Please Follow Question Instructions (less than four words)')"
+                                      onchange="try{setCustomValidity('')}catch(e){}"
+                                      oninput="setCustomValidity(' ')"
+                                      required="required"
+                                    /><br />
+                                  <p class="card-text"> 
+                                    Please describe 3 aspects of the main object/topic:
+                                  </p>
+                                    {% for attr_idx in range(attributes_order[loop.index0]) %}
+                                      <div class="form-row">
+                                        <div class="col">
+                                          <label for="attribute{{ idx }}-{{ attr_idx }}">
+                                          Attribute {{ attr_idx + 1 }}:
+                                          {% if attr_idx != 0 %} (can you relate it to #1?){% else %}{% endif %} 
+                                          </label>
+                                          <input
+                                            id="attribute{{ idx }}-{{ attr_idx }}"
+                                            class="form-control"
+                                            type="text"
+                                            name="attribute{{ idx }}-{{ attr_idx }}"
+                                            pattern="^((\w+ ?){1,4})$"
+                                            title="Please re-read the instructions"
+                                            oninvalid="this.setCustomValidity('Please Follow Question Instructions (less than four words)')"
+                                            onchange="try{setCustomValidity('')}catch(e){}"
+                                            oninput="setCustomValidity(' ')"
+                                            required="required"
+                                          />
+                                        </div>
+                                        <div class="col">
+                                          <label for="values{{ idx }}-{{ attr_idx }}">
+                                              Possible Values:
+                                          </label>
+                                          <input
+                                            id="values{{ idx }}-{{ attr_idx }}"
+                                            class="form-control"
+                                            type="text"
+                                            name="values{{ idx }}-{{ attr_idx }}"
+                                            required="required"
+                                          />
+                                        </div>
+                                        <div class="col">
+                                          <label for="values{{ idx }}-{{ attr_idx }}">
+                                                {{ all_answers }}:
+                                          </label>
+                                          <input name="all_values{{ idx }}-{{ attr_idx }}" id="all_values{{ idx }}-{{ attr_idx }}" 
+                                            class="form-control"
+                                          type=checkbox
+                                          />
+                                        </div>
+                                      </div>
+                                    {% endfor %}
+                                    </div>
+                                    <div class="form-group card-text">
+                                      <label for="main{{ idx }}">
+                                        Final Answer (combine the above attributes):
+                                      </label>
+                                      <input
+                                        id="question_full{{ idx }}"
+                                        class="form-control"
+                                        type="text"
+                                        name="question_full{{ idx }}"
+                                        required="required"
+                                        pattern="^.* {{ domain_blank }}[\.|\s|\?]?.*$"
+                                        title="Please re-read the instructions"
+                                        oninvalid="this.setCustomValidity('Please Follow Question Instructions (include {{ domain_blank }})')"
+                                        onchange="try{setCustomValidity('')}catch(e){}"
+                                        oninput="setCustomValidity(' ')"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endfor %}
+                            <input
+                              id="submitButton"
+                              class="btn btn-primary"
+                              type="submit"
+                              value="Submit"
+                            />
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

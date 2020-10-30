@@ -1,0 +1,320 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <link
+              href="https://orionweller.github.io///assets/css/turk_style.css"
+              rel="stylesheet"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
+          ></script>
+          <script
+            src="https://orionweller.github.io///assets/js/config.js"
+          ></script>
+          <script
+            defer
+            src="https://orionweller.github.io///assets/js/annotation.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Highlight the Answer to the Question</h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>
+                    Please read the paragraph that describes a National Park and answer
+                    the questions below based on that passage.
+                  </p>
+                  <p>
+                    Answer the questions using <b>only</b> the given paragraph,
+                    <b>do not use any of your background knowledge</b>.
+                  </p>
+                  <p>
+                    If the question asks something that is <b>not found</b>
+                    in the paragraph, answer with the &rdquo;NA&rdquo; button.
+                  </p>
+                  <p>
+                  Highlight all correct answers in the paragraph (or highlight
+                  the reason why the answer is "none").  Please highlight the
+                  smallest amount of text that still contains the answer.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      If the question asks something specific ("which wolf species are there at the national park?") and the
+                      paragraphs explicitly says that there are none (or there is no time / no place) your answer should
+                      select the phrase of text that proves that there are none (see the examples).
+                    </li>
+                    <li>
+                      Read the paragraph carefully - it's possible that the
+                      the answer is not answerable (&rdquo;NA&rdquo;).
+                      For example, if a question asks what coyotes <strong>live</strong> in the national park
+                      but the paragraph only <strong>describes</strong> coyote's eating habits, the answer should be &rdquo;NA&rdquo;
+                      as it didn't explicitly say they live there.
+                    </li>
+                    <li>
+                      Highlight the smallest amount of text that still is the correct answer.  Select multiple segments
+                      if there are multiple answers in the paragraph.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="examples-body" class="card-body collapse">
+                  <h3>Given Paragraph</h3>
+                  <p>
+                    Muir and his Sierra Club continued to lobby the
+                    government and influential people for the creation of a unified
+                    Yosemite National Park. Muir convinced Roosevelt to take control of
+                    Yosemite Valley and Mariposa Grove away from California and return
+                    it to the federal government. In 1906, Roosevelt signed a bill
+                    that did precisely that. There is no state govermental oversight of
+                    the park.
+                  </p>
+                  <h3>Questions and Answers</h3>
+                  <dl>
+                    <dt>
+                      Question 1: &rdquo;What year was the national park mentioned founded?&rdquo;
+                    </dt>
+                    <dd>
+                      The answer is &rdquo;1906&rdquo;, as that was when the
+                      paragraph says that it was founded.
+                    </dd>
+                    <dt>
+                      Question 2: &rdquo;What flowers are located in the national park?&rdquo;
+                    </dt>
+                    <dd>
+                      The answer is &rdquo;NA&rdquo; because no flowers are mentioned 
+                      in the text - we don't have enough information to decide.
+                    </dd>
+                    <dt>
+                      Question 3: &rdquo;What state goverment oversees the park?&rdquo;
+                    </dt>
+                    <dd>
+                      The answer is &rdquo;There is no state govermental oversight&rdquo;
+                      because the text specifically mentions the lack of state
+                      govermental oversight.
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Make sure to read the <strong>Instructions</strong>,
+                        <strong>Tips &amp; Gotchas</strong>, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                      <p>
+                        Please note that selecting the 'Previously Submitted' button will take you back to the previous question and passage that
+                        was submitted.  However, you will lose the selections you made on the current question and passage (if any).
+                      </p>
+                      <p>
+                        Please select your answers to the following question and paragraphs. Your question <strong>**will be**</strong> be the same for all paragraphs.
+                      </p>
+                      <br />
+
+                    <div class="col-md-12">
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_questions"
+                          id="all_questions"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_contexts"
+                          id="all_contexts"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_answers"
+                          id="all_answers"
+                        />
+                        <input
+                          type="hidden"
+                          value="{{ urls }}"
+                          name="all_urls"
+                          id="all_urls"
+                        />
+                          <h3>Highlight the <strong id="key-name" class="key-name">answer</strong> in the text</h3>
+                          <h4 id="qcomplete"></h4>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <input 
+                                type="text"
+                                name="question-sub"
+                                  id="question-sub"
+                                  class="form-control"
+                                  value=""
+                                  disabled="disabled"
+                                  type="hidden">
+                              </div>
+                            </div>
+                          </div>
+                          <div id="form" class="row"> </div>
+                          <div id="raw">{{ input_paragraph | tojson }}</div>
+                          <div id="spans"></div>
+                          <div id="questions">{{ q_to_label | tojson }}</div>
+                          <div id="overlaps"></div>
+                          <div class="row" id="workContent">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 fields">
+                              <div id="button-div">
+                                <button type="button" id="undo" value="undo" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-backward"></span> Undo
+                                </button>
+                                <button type="button" id="remove" value="remove" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-remove"></span> Clear
+                                </button>
+                              </div>
+
+                              <div class="btn-group-vertical" data-toggle="buttons" id="choice">
+                              </div>
+                          </div>
+                        <button type="button" id="prevSubmitted" value="prevSubmitted" class="btn btn-danger">
+                              <span class="glyphicon glyphicon-remove"></span> Previous Submitted
+                        </button>
+                        <span title="Highlight all fields before submitting"><input id="submit" onclick="return nextTask();" class="btn btn-default" data-key="Enter" type="submit" disabled=disabled /></span>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

@@ -1,0 +1,42 @@
+{
+    "AutoApprovalDelayInSeconds": 300,
+    "AssignmentDurationInSeconds": 7200,
+    "Reward": "1.00",
+    "Title": "Answer Multi-Part Questions from Passages",
+    "Keywords": "Questions, Activities, Label, Answer, Reading",
+    "Description": "Answer questions about a paragraph using only that paragraph",
+    "QualificationRequirements": [
+        {
+          "QualificationTypeId": "00000000000000000040",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            5000
+          ],
+          "RequiredToPreview": true
+        },
+        {
+          "QualificationTypeId": "000000000000000000L0",
+          "Comparator": "GreaterThanOrEqualTo",
+          "IntegerValues": [
+            99
+          ],
+          "RequiredToPreview": true
+        },
+        {
+          "QualificationTypeId": "00000000000000000071",
+          "Comparator": "EqualTo",
+          "LocaleValues": [{
+              "Country": "US"
+            }],
+          "RequiredToPreview": true
+        },
+        {
+          "QualificationTypeId": "3SR1M7GDJVFNC0037U1TXQUJQO12A7",
+          "Comparator": "EqualTo",
+          "IntegerValues": [
+            1
+          ],
+          "RequiredToPreview": true
+        }
+      ]
+}

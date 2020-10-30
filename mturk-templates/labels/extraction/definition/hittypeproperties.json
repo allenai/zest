@@ -1,0 +1,42 @@
+{
+  "AutoApprovalDelayInSeconds": 300,
+  "AssignmentDurationInSeconds": 7200,
+  "Reward": "0.75",
+  "Title": "Highlight the Answer to the Question",
+  "Keywords": "question, answer, label, reading",
+  "Description": "Highlight answers to questions about paragraphs.",
+  "QualificationRequirements": [
+      {
+        "QualificationTypeId": "00000000000000000040",
+        "Comparator": "GreaterThanOrEqualTo",
+        "IntegerValues": [
+          5000
+        ],
+        "RequiredToPreview": true
+      },
+      {
+        "QualificationTypeId": "000000000000000000L0",
+        "Comparator": "GreaterThanOrEqualTo",
+        "IntegerValues": [
+          99
+        ],
+        "RequiredToPreview": true
+      },
+      {
+        "QualificationTypeId": "00000000000000000071",
+        "Comparator": "EqualTo",
+        "LocaleValues": [{
+            "Country": "US"
+          }],
+        "RequiredToPreview": true
+      },
+      {
+        "QualificationTypeId": "3URP6LWYVRGIRTZ0Y8XZ7EER3X0U90",
+        "Comparator": "EqualTo",
+        "IntegerValues": [
+          1
+        ],
+        "RequiredToPreview": true
+      }
+    ]
+}

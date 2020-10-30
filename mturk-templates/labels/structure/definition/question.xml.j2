@@ -1,0 +1,608 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <link
+              href="https://orionweller.github.io///assets/css/turk_style.css"
+              rel="stylesheet"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
+          ></script>
+          <script
+            src="https://orionweller.github.io///assets/js/config.js"
+          ></script>
+          <script
+            defer
+            src="https://orionweller.github.io///assets/js/structure_script.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Write Answers to Multi-Part Questions</h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>
+                    Please read the paragraph that describes a {{ domain }} and answer
+                    the questions below based on that passage by filling in the boxes. Each box will ask for a main object
+                    (a 'volcano' in the example) and then ask other questions based on that object attributes.  Note that
+                    the amount of input boxes will vary based on the particular HIT.  Each input box is based on the question
+                    so please read the question to verify that you understand what the boxes are asking for.
+                  </p>
+                  <p>
+                    Answer the questions using <b>only</b> the given paragraph,
+                    <b>do not use any of your background knowledge</b>.
+                  </p>
+                  <p>
+                    If the question asks something that is <b>not found</b>
+                    in the paragraph, answer with the &rdquo;NA&rdquo; button.
+                  </p>
+                  <p>
+                    Write <strong>all correct answers</strong> from the paragraph 
+                    You can do this by clicking the <strong>next and previous</strong> buttons located near the
+                    bottom right of the page to add multiple items.  When you have included all answers
+                    for a given passage, click the submit button to move to the next passage.
+                  </p>
+                  <p>
+                    If the two parts of your answer for one input box are not contiguous, use the '|' character to seperate them. 
+                    See the examples for more details.
+                  </p>
+                  <p>
+                    If the text explicitly says that there are none (such as a question looking for mountains and the text says "there are no mountains"),
+                    the answer should be the <strong>text that explains there is none</strong>.  If the question was the main question and there are
+                    sub-questions after it, you can mark them as NA.  If it was the sub question that was explicitly none, leave the rest of the
+                    answers as normal.  <strong>This is shown in Examples 5 and 6.</strong>
+                  </p>
+                  <p>
+                   Please quote the smallest amount of text that still contains the answer. <strong>Your input
+                   must exactly match the passage, unless the answer is multiple choice.</strong>  If it is multiple choice
+                   the acceptable answers will be found in parentheses next to the attribute. 
+                  </p>
+                  <p>
+                    Once you have gathered all answers to the particular passage and
+                    question, select the submit button on the bottom left.  NOTE: you can go backwards to see
+                    previously submitted answers but you will lose all information on the current page.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      If the question asks something specific ("which wolf species are there at the national park?") and the
+                      paragraphs explicitly says that there are none (or there is no time / no place) your answer should
+                      be the text that explains that.
+                    </li>
+                    <br />
+                    <li>
+                      Read the paragraph carefully - it's possible that the
+                      the answer is not answerable (&rdquo;NA&rdquo;).
+                      For example, if a question asks what coyotes <strong>live</strong> in the national park
+                      but the paragraph only <strong>describes</strong> coyote's eating habits, the answer should be the &rdquo;NA&rdquo;
+                      button, as it didn't explicitly say they live there. 
+                    </li>
+                    <br />
+                    <li>
+                      Write the smallest amount of text that still is the correct answer. 
+                    </li>
+                    <br />
+                    <li>
+                      Use the 'Next' and 'Previous' buttons to include each item mentioned in the text with their corresponding attributes. 
+                    </li>
+                    <br />
+                    <li>
+                        If the submit button isn't available, that means part of your answer is the wrong format. You can hit the next button to get an error message.
+                    </li>
+                    <br />
+                    <li>
+                        If the input box prompts are confusing, please re-read the question box to understand what the prompts are asking.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+
+                        <div id="examples-body" class="card-body collapse">
+                        <h3>Example 1</h3>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" type="text" value="" rows="3" disabled="">What volcanos are there at this national park and are they in Hawaii?</textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" type="text" value="" rows="6" disabled="">Hawai‘i Volcanoes National Park protects some of the most unique geological, biological, and cultural landscapes in the world. Extending from sea level to 13,677 feet, the park encompasses the summits of one of the world's most active volcanoes - Kīlauea</textarea>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 content">
+                                  <label>Enter each 'volcano' here:</label>
+                                  <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="" class="form-control" value="Kilauea" disabled>
+                                    </div>
+                                    <div class="col-sm-4"><div class="form-check">
+                                      <input type="checkbox" class="form-check-input" disabled>
+                                      <label class="form-check-label">Question is not answerable (NA)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 content">
+                                <label>in Hawaii (answer must be one of 'Yes,No')</label><div class="form-row">
+                                <div class="col-sm-8">
+                                  <input type="text" placeholder="Yes,No" class="form-control" value="Yes" disabled>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" disabled> 
+                                    <label class="form-check-label">Question is not answerable (NA)</label>
+                                  </div>
+                                </div>
+                              </div>
+                                <br />
+                               <p>
+                                <strong>Explanation</strong>: If there were multiple volcanos listed, you would <strong>select the 'Next' button</strong> and enter the next volcano in before hitting submit.
+                              </p>
+                            </div>
+                         
+                    </div>
+
+
+                        <br />
+                        <br />
+                        <h3>Example 2</h3>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" type="text" value="" rows="3" disabled="">What volcanos are there at this national park and are they in Hawaii?</textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" type="text" value="" rows="6" disabled="">This National Park protects some of the most unique geological, biological, and cultural landscapes in the world. Extending from sea level to 13,677 feet, the park encompasses the summits of one of the world's most active volcanoes - Kīlauea</textarea>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 content">
+                                  <label>Enter each 'volcano' here:</label>
+                                  <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="" class="form-control" value="Kilauea" disabled>
+                                    </div>
+                                    <div class="col-sm-4"><div class="form-check">
+                                      <input type="checkbox" class="form-check-input" disabled>
+                                      <label class="form-check-label">Question is not answerable (NA)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 content">
+                                <label>in Hawaii (answer must be one of 'Yes,No')</label><div class="form-row">
+                                <div class="col-sm-8">
+                                  <input type="text" placeholder="Yes,No" class="form-control" value="NA" disabled>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked='checked' disabled> 
+                                    <label class="form-check-label">Question is not answerable (NA)</label>
+                                  </div>
+                                </div>
+                              </div>
+                                <br />
+                              <p>
+                                <strong>Explanation</strong>: This passage does not mention whether it is in Hawaii, hence we mark it as 'NA'
+                              </p>
+                            </div>
+                          
+                    </div>
+
+
+                        <br />
+                        <br />
+                        <h3>Example 3</h3>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" type="text" value="" rows="3" disabled="">What animals are there in this national park and what do they eat?</textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" type="text" value="" rows="6" disabled="">A lion is a large animal capable of eating large quantities of prey, including deer.  The lion lives in the savannah and also eats antelope.</textarea>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 content">
+                                  <label>Enter each 'animal' here:</label>
+                                  <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="" class="form-control" value="lion" disabled>
+                                    </div>
+                                    <div class="col-sm-4"><div class="form-check">
+                                      <input type="checkbox" class="form-check-input" disabled>
+                                      <label class="form-check-label">Question is not answerable (NA)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 content">
+                                <label>what they eat </label><div class="form-row">
+                                <div class="col-sm-8">
+                                  <input type="text" placeholder="mice, grass, etc." class="form-control" value="deer|antelope" disabled>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" disabled> 
+                                    <label class="form-check-label">Question is not answerable (NA)</label>
+                                  </div>
+                                </div>
+                              </div>
+                                <br />
+                              <p>
+                                <strong>Explanation</strong>: Since the passage mentions two things that a lion eats but they are not next to each other, we use the '|' character to seperate them (<strong>with no spaces</strong>), indicating 'deer' and 'antelope'.
+                              </p>
+                            </div>
+                          </div>
+
+                        <br />
+                        <h3>Example 4</h3>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" type="text" value="" rows="3" disabled="">What animals are there in this national park and what do they eat?</textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" type="text" value="" rows="6" disabled="">The National Park is more than 800 miles long and has no animals located inside of it.</textarea>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 content">
+                                  <label>Enter each 'animal' here:</label>
+                                  <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="" class="form-control" value="has no animals located inside" disabled>
+                                    </div>
+                                    <div class="col-sm-4"><div class="form-check">
+                                      <input type="checkbox" class="form-check-input" disabled>
+                                      <label class="form-check-label">Question is not answerable (NA)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 content">
+                                <label>what they eat </label><div class="form-row">
+                                <div class="col-sm-8">
+                                  <input type="text" placeholder="" class="form-control" value="NA" disabled>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked="checked" disabled> 
+                                    <label class="form-check-label">Question is not answerable (NA)</label>
+                                  </div>
+                                </div>
+                              </div>
+                                <br />
+                              <p>
+                                <strong>Explanation</strong>: Since the passage explicitly mentions that there are no animals living there, we write the reason in the 'animal' box and leave the rest blank.
+                              </p>
+                            </div>
+                          </div>
+
+
+                      <br />
+                        <h3>Example 5</h3>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" type="text" value="" rows="3" disabled="">What animals are there in this national park and what do they eat?</textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" type="text" value="" rows="6" disabled="">The National Park is more than 800 miles long and contains lions, which eat nothing.</textarea>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 content">
+                                  <label>Enter each 'animal' here:</label>
+                                  <div class="form-row">
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="" class="form-control" value="lions" disabled>
+                                    </div>
+                                    <div class="col-sm-4"><div class="form-check">
+                                      <input type="checkbox" class="form-check-input" disabled>
+                                      <label class="form-check-label">Question is not answerable (NA)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 content">
+                                <label>what they eat </label><div class="form-row">
+                                <div class="col-sm-8">
+                                  <input type="text" placeholder="" class="form-control" value="which eat nothing" disabled>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" disabled> 
+                                    <label class="form-check-label">Question is not answerable (NA)</label>
+                                  </div>
+                                </div>
+                              </div>
+                                <br />
+                              <p>
+                                <strong>Explanation</strong>: Since the passage explicitly mentions that lions don't eat anything, we write 'lions' in the 'animal' box
+                                but write the reason why 'what they eat' is none.
+                              </p>
+                            </div>
+                          </div>
+
+
+
+
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Make sure to read the <strong>Instructions</strong>,
+                        <strong>Tips &amp; Gotchas</strong>, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                      <p>
+                        Please note that selecting the 'Previously Submitted' button will take you back to the previous question and passage that
+                        was submitted.  However, you will lose the selections you made on the current question and passage (if any).  The previous and 
+                        next buttons for each item (located in the bottom right) will not lose any information.
+                      </p>
+                      <p>
+                        ** Remember to use the next button to include an entry for <strong>each</strong> item found in the passage. Additional bonuses will come to those that do this when appropiate. **
+                      </p>
+
+                      <br />
+
+                    <div class="col-md-12">
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_questions"
+                          id="all_questions"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_contexts"
+                          id="all_contexts"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_answers"
+                          id="all_answers"
+                        />
+                        <input
+                          type="hidden"
+                          value=""
+                          name="all_structures"
+                          id="all_structures"
+                        />
+                        <input
+                          type="hidden"
+                          value="{{ urls }}"
+                          name="all_urls"
+                          id="all_urls"
+                        />
+                          <h3>Write the answers found in the text</h3>
+                          <h4 id="qcomplete"></h4>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div class="form-group">
+                                <label>Question</label>
+                                <textarea class="form-control" 
+                                type="text"
+                                name="question-sub"
+                                  id="question-sub"
+                                  value=""
+                                  rows="3" disabled>
+                                  </textarea>
+                              </div>
+                               <div class="form-group">
+                                <label>Passage:</label>
+                                <textarea class="form-control" 
+                                type="text"
+                                name="passage-sub"
+                                  id="passage-sub"
+                                  value=""
+                                  rows="9" disabled>
+                                  </textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="form" class="row"> </div>
+                          <div id="raw">{{ input_paragraph | tojson }}</div>
+                          <div id="spans"></div>
+                          <div id="questions">{{ q_to_label | tojson }}</div>
+                          <div id="structures">{{ structures | tojson }}</div>
+                          <div id="overlaps"></div>
+                          <div class="row" id="workContent">
+                            <div class="col-xs-12 col-sm-8 content">
+                              <div id="well" class="ann well"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 fields">
+                              <div id="button-div">
+                                <button type="button" id="previous" value="previous" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-remove"></span> Previous
+                                </button>
+                                <button type="button" id="next" value="next" class="btn btn-success">
+                                  <span class="glyphicon glyphicon-remove"></span> Next 
+                                </button>
+                                <button type="button" id="clear" value="clear" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-backward"></span> Clear
+                                </button>
+                                <button type="button" id="delete" value="delete" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-remove"></span> Delete
+                                </button>
+                              </div>
+
+                              <div class="btn-group-vertical" data-toggle="buttons" id="choice">
+                              </div>
+                          </div>
+                          <button type="button" id="prevSubmitted" value="prevSubmitted" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-remove"></span> Previous Submitted
+                        </button>
+                        <span title="Write in all fields before submitting"><input id="submit" onclick="return nextTask();" class="btn btn-default" data-key="Enter" type="submit" disabled=disabled /></span>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

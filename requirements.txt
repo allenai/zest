@@ -1,0 +1,7 @@
+click==7.0
+nltk==3.4.5
+pandas==0.25.3
+scipy==1.4.1
+t5[gcp]==0.1.7
+tensorflow==1.15.2
+tqdm==4.41.1

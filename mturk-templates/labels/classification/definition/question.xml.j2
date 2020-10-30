@@ -1,0 +1,364 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Select the Answer to the Question</h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>
+                    For each question, please read the paragraph then select
+                    the correct answer based on it.
+                  </p>
+                  <p>
+                    Answers should be either &ldquo;yes&rdquo;,
+                    &ldquo;no&rdquo;, or &ldquo;NA&rdquo; for Not Available
+                    when the paragraph does not answer the question either
+                    way. If the question is not a yes/no question, please mark
+                    it as &ldquo;not-yes-no&rdquo;.
+                  </p>
+                  <p>
+                    Select answers based <strong>only</strong> on the
+                    paragraph, <em>do not use your own knowledge</em>.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      Only choose answers based on what the paragraph directly
+                      supports.
+                    </li>
+                    <li>
+                      The question will be the same for all paragraphs.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="examples-body" class="card-body collapse">
+                  <h3>Paragraph</h3>
+                  <p>
+                    Muir and his Sierra Club continued to lobby the
+                    government and influential people for the creation of a unified
+                    Yosemite National Park. Muir convinced Roosevelt to take control of
+                    Yosemite Valley and Mariposa Grove away from California and return
+                    it to the federal government. In 1906, Roosevelt signed a bill
+                    that did precisely that. There is no state govermental oversight of
+                    the park.
+                  </p>
+                  <h3>Questions and Answers</h3>
+                  <div class="form-group">
+                    <p>
+                      <strong>Question 1:</strong>
+                      Can you go kayaking at this national park?
+                    </p>
+                    {% for answer in ['yes', 'no', 'NA', 'not-yes-no'] %}
+                    <div class="form-check disabled">
+                      <input
+                         id="a1-example-{{ loop.index }}"
+                         class="form-check-input"
+                         type="radio"
+                         name="a1-example"
+                         value="{{ answer }}"
+                         disabled
+                         {% if answer == 'NA' %}checked{% endif %}>
+                      <label
+                         class="form-check-label"
+                         for="a1-example-{{ loop.index }}">
+                        {{ answer }}
+                      </label>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    The answer is &ldquo;NA&rdquo; because the document does not
+                    say whether or not you can kayak there.
+                  </p>
+                  <hr>
+                  <div class="form-group">
+                    <p>
+                      <strong>Question 2:</strong>
+                       Was the national park founded before 1905?
+                    </p>
+                    {% for answer in ['yes', 'no', 'NA', 'not-yes-no'] %}
+                    <div class="form-check disabled">
+                      <input
+                         id="a2-example-{{ loop.index }}"
+                         class="form-check-input"
+                         type="radio"
+                         name="a2-example"
+                         value="{{ answer }}"
+                         disabled
+                         {% if answer == 'no' %}checked{% endif %}>
+                      <label
+                         class="form-check-label"
+                         for="a2-example-{{ loop.index }}">
+                        {{ answer }}
+                      </label>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    The answer is &ldquo;no&rdquo; because it says that the
+                    park was founded in 1906.
+                  </p>
+                  <hr>
+                  <div class="form-group">
+                    <p>
+                      <strong>Question 3:</strong>
+                      Was the national park founded after 1905?
+                    </p>
+                    {% for answer in ['yes', 'no', 'NA', 'not-yes-no'] %}
+                    <div class="form-check disabled">
+                      <input
+                         id="a3-example-{{ loop.index }}"
+                         class="form-check-input"
+                         type="radio"
+                         name="a3-example"
+                         value="{{ answer }}"
+                         disabled
+                         {% if answer == 'yes' %}checked{% endif %}>
+                      <label
+                         class="form-check-label"
+                         for="a3-example-{{ loop.index }}">
+                        {{ answer }}
+                      </label>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    The answer is &ldquo;yes&rdquo; because it says that the
+                    park was founded in 1906.
+                  </p>
+                  <hr>
+                  <div class="form-group">
+                    <p>
+                      <strong>Question 4:</strong>
+                      How many camp sites does the park have?
+                    </p>
+                    {% for answer in ['yes', 'no', 'NA', 'not-yes-no'] %}
+                    <div class="form-check disabled">
+                      <input
+                         id="a4-example-{{ loop.index }}"
+                         class="form-check-input"
+                         type="radio"
+                         name="a4-example"
+                         value="{{ answer }}"
+                         disabled
+                         {% if answer == 'not-yes-no' %}checked{% endif %}>
+                      <label
+                         class="form-check-label"
+                         for="a4-example-{{ loop.index }}">
+                        {{ answer }}
+                      </label>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    The answer is &ldquo;not-yes-no&rdquo; because the question
+                    asks for a number, and thus is not a yes/no question.  This should
+                    not happen, but is there just in case something goes wrong.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Read the <strong>Instructions</strong>,
+                        <strong>Tips &amp; Gotchas</strong>, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                    </div>
+                    <div class="col-md-12">
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                        {% for idx in range(input_paragraph | length) %}
+                        <hr>
+                        <div class="form-group">
+                          <p>
+                            <strong>Question {{ idx + 1}}:</strong>
+                            {{ q_to_label[loop.index0] }}
+                          </p>
+                          <p>
+                            <strong>Paragraph:</strong>
+                            {{ input_paragraph[loop.index0] }}
+                          </p>
+                          {% for answer in ['yes', 'no', 'NA', 'not-yes-no'] %}
+                          <div class="form-check">
+                            <input
+                               id="answer{{ idx }}-{{ loop.index }}"
+                               class="form-check-input"
+                               type="radio"
+                               name="answer{{ idx }}"
+                               value="{{ answer }}"
+                               required>
+                            <label
+                               class="form-check-label"
+                               for="answer{{ idx }}-{{ loop.index }}">
+                              {{ answer }}
+                            </label>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        <input
+                           type="hidden"
+                           id="question{{ idx }}"
+                           name="question{{ idx }}"
+                           value="{{ q_to_label[loop.index0] }}">
+                        <input
+                           type="hidden"
+                           id="context{{ idx }}"
+                           name="context{{ idx }}"
+                           value="{{ input_paragraph[loop.index0] }}">
+                        <input
+                           type="hidden"
+                           id="format{{ idx }}"
+                           name="format{{ idx }}"
+                           value="{{ format_type[loop.index0] }}">
+                        <input
+                           type="hidden"
+                           id="urls{{ idx }}"
+                           name="urls{{ idx }}"
+                           value="{{ urls[loop.index0] }}">
+                        {% endfor %}
+                        <input
+                           id="submitButton"
+                           class="btn btn-primary"
+                           type="submit">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

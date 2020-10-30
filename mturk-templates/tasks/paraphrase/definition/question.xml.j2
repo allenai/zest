@@ -1,0 +1,258 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>
+              Paraphrase Questions about {{ domain }}s <br />
+              <small class="text-muted">
+                (Please only take 1 of these HITs)
+              </small>
+            </h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>Paraphrase the given questions to have a different wording.
+                      Your paraphrased questions should have the same answer as the original
+                      would and should <strong>not</strong> change the meaning of the question.
+                  </p>
+                  <p>
+                    You will find that all questions use the phrase &ldquo;{{ domain_blank }}&rdquo; in
+                    place of an actual {{ domain }} name. We do this so that you
+                    could ask this question for an individual {{ domain }}.  When you paraphrase,
+                    please continue to include this phrase.
+                  </p>
+                  <p>
+                    Try to change the sentence <strong>as much as possible</strong> using synonyms and/or 
+                    rearranging the structure of the sentence. 
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      Make your questions <em>specific</em>
+                      and <em>concrete</em> rather than open-ended or
+                      subjective. For example, &ldquo;{{ domain_concrete }}&rdquo; is good,
+                       while &ldquo;{{ domain_vague }}&rdquo; is bad.
+                    </li>
+                    <li>
+                      Do <strong>not</strong> write questions that compare or
+                      involve multiple {{ domain }}s. For example, avoid
+                      questions like &ldquo;{{ domain_comparison_bad }}&rdquo;.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="examples-body" class="card-body collapse">
+
+                  <h3>
+                    Original Question: {{ original_question }}
+                  </h3>
+                  <br />
+                  <h3>Bad Examples</h3>
+                  <dl>
+                    <dt>
+                      {{ bad_output_format }}
+                    </dt>
+                    <dd>
+                      (Reason) The question should have the same type of
+                      answer as the original, yes or no.
+                    </dd>
+                    <dt>
+                      {{ bad_changed_meaning }}
+                    </dt>
+                    <dd>
+                      (Reason) This question does not have
+                      the same meaning as the given example.
+                    </dd>
+                  </dl>
+
+                  <h3>Good Examples</h3>
+                    <ul>
+                      <li>
+                      {{ good_example1 }}
+                      </li>
+                      <li>
+                      {{ good_example2 }}
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Make sure to read the <strong>Instructions</strong>,
+                        <strong>Tips &amp; Gotchas</strong>, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                    <div class="col-md-12">
+                      <p>
+                        Please write paraphrases the questions below (changing them as much as possible with synonyms but keeping the original meaning):
+                      </p>
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                        {% for idx in range(paraphrase_q | length) %}
+                        <div class="form-group">
+                          <label for="q{{ idx }}">
+                            Paraphrase {{ idx + 1 }}: &ldquo;{{ paraphrase_q[loop.index0] }}&rdquo;
+                          </label>
+                          <input
+                            id="q{{ idx }}"
+                            class="form-control"
+                            type="text"
+                            name="q{{ idx }}"
+                            required="required"
+                            pattern="^.* {{ domain_blank }}[\.|\s|\?]?.*$"
+                            title="Please re-read the instructions"
+                            oninvalid="this.setCustomValidity('Please Follow Question Instructions (include {{ domain_blank }})')"
+                            onchange="try{setCustomValidity('')}catch(e){}"
+                            oninput="setCustomValidity(' ')"
+                          />
+                          <input
+                            type="hidden"
+                            value="{{ paraphrase_q[loop.index0] }}"
+                            name="originalQ{{ idx }}"
+                            id="originalQ{{ idx }}"
+                          />
+                        </div>
+                        {% endfor %}
+                        <input
+                          id="submitButton"
+                          class="btn btn-primary"
+                          type="submit"
+                          value="Submit"
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

@@ -1,0 +1,353 @@
+<HTMLQuestion
+  xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd"
+>
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+          />
+          <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"
+          ></script>
+        </head>
+        <body>
+          <div class="container">
+            <h1>
+              Combining Questions <br />
+            </h1>
+
+            <section id="instructions">
+              <div class="card">
+                <div id="instructions-header" class="card-header">
+                  <h2>
+                    Instructions
+                    <button
+                      class="btn btn-info float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#instructions-body"
+                      aria-expanded="false"
+                      aria-controls="instructions-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="instructions-body" class="card-body collapse">
+                  <p>
+                    Computers (such as Alexa and Siri) often don't understanding
+                    multiple requests at once. In this HIT we will combine questions
+                    to gather data to help solve this problem.
+                  </p>
+                  <p>
+                    Please combine the questions given in groups in order
+                    to write 5 new, natural sounding questions about {{ domain }}s.
+                    Pick the most natural 5 to combine, as some pairs
+                    may not be well suited to being combined naturally. You should only
+                    combine the most natural two out of the three questions given for each group.
+                  </p>
+                  <p>
+                    Use the phrase &ldquo;{{ domain_blank }}&rdquo; in place of
+                    an actual {{ domain }}'s name.
+                  </p>
+                  <p>
+                    Finally, write general questions which could apply to
+                    different {{ domain }}s. Do <strong>not</strong> write
+                    questions that apply only to a specific {{ domain }}
+                    (e.g. &ldquo;{{ too_specific_domain }}&rdquo;).
+                  </p>
+                  <p>
+                    For questions that do not combine well, write "NA {{ domain_blank }}" in place of a 
+                    combination question.
+                  </p>
+                  <p>
+                  Do <strong>not</strong> write questions that are unnatural / would not be a question 
+                  someone might normally ask about {{ domain }}s.  If you couldn't find the answer to your question
+                  from a single Google search, try to write a different question (or skip that question combination). 
+                  You do not have to stick with the original question word for word, but you should try to create a question
+                  that combines the main subjects of the question (see the examples).
+                  </p>
+                  <p>
+                    We will review all the results and those that look like they tried to write natural questions will be given
+                    bonuses and qualifications for future work.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="tips-and-gotchas">
+              <div class="card">
+                <div id="tips-and-gotchas-header" class="card-header">
+                  <h2>
+                    Tips &amp; Gotchas
+                    <button
+                      class="btn btn-warning float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#tips-and-gotchas-body"
+                      aria-expanded="false"
+                      aria-controls="tips-and-gotchas-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="tips-and-gotchas-body" class="card-body collapse">
+                  <ul>
+                    <li>
+                      Choose questions which do <strong>not</strong> have the
+                      same answer for every {{ domain }} (such as
+                      &ldquo;{{ domain_same_answer }}&rdquo;).
+                    </li>
+                    <li>
+                      Make your questions <em>specific</em>
+                      and <em>concrete</em> rather than open-ended or
+                      subjective. For example, &ldquo;{{ domain_concrete }}&rdquo; 
+                      is good, while &ldquo;{{ domain_vague }}&rdquo; is bad.
+                    </li>
+                    <li>
+                      Do <strong>not</strong> write questions that compare or
+                      involve multiple {{ domain }}s. For example, avoid
+                      questions like &ldquo;{{ domain_comparison_bad }}&rdquo;.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="examples">
+              <div class="card">
+                <div id="examples-header" class="card-header">
+                  <h2>
+                    Examples
+                    <button
+                      class="btn btn-success float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#examples-body"
+                      aria-expanded="false"
+                      aria-controls="examples-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="examples-body" class="card-body collapse">
+                <h3>Example Questions:</h3>
+                  <table style="width:100%" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Question Number</th>
+                        <th>Question</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>{{ extraction_good_question }}</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>{{ base_question_two }}</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>{{ base_question_three }}</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>{{ base_question_four }}</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>{{ base_question_five }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br />
+
+                  <h3>Good Examples</h3>
+                  <dl>
+                    <dt>
+                      Combining questions {{ combined_good_example_one_and }} &ldquo;and&rdquo;:
+                    </dt>
+                    <dd>
+                      Question: {{ combined_example_one }}
+                    </dd>
+                    <dt>
+                      Combining questions {{ combined_good_example_two_or }} using &ldquo;or&rdquo;:
+                    </dt>
+                    <dd>
+                      Question: {{ combined_example_two }}
+                    </dd>
+                    <dt>
+                      Combining questions {{ combined_good_example_three_negation }} using &ldquo;negation&rdquo;:
+                    </dt>
+                    <dd>
+                      Question: {{ combined_example_three }}
+                    </dd>
+                    <dt>
+                      Combining questions {{ combined_good_example_four_negation }} using &ldquo;negation&rdquo;:
+                    </dt>
+                    <dd>
+                      Question: {{ combined_example_four }}
+                    </dd>
+                  </dl>
+                  <h3>Bad Examples</h3>
+                  <p> 
+                    {{ bad_example_combination }} (reason: this question is relatively unnatural and is not something someone would usually ask in one sentence)
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="task">
+              <div class="card">
+                <div id="task-header" class="card-header">
+                  <h2>
+                    Task
+                    <button
+                      class="btn btn-primary float-right"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#task-body"
+                      aria-expanded="false"
+                      aria-controls="task-body"
+                    >
+                      Toggle
+                    </button>
+                  </h2>
+                </div>
+                <div id="task-body" class="card-body collapse show">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        Make sure to read (or <strong>re-read</strong>) the <strong>Instructions</strong>,
+                        Tips &amp; Gotchas, and
+                        <strong>Examples</strong> above if you haven't.
+                      </p>
+                    <div class="col-md-12">
+                      <p>
+                        <strong>Please select 5 of the below question groups to combine,
+                        choosing two of the three given questions to combine in the most natural way.</strong>  
+                        Remeber, you can paraphrase the questions to help them be more natural.
+                        For the other 5 input boxes you skip, write 'NA {{ domain_blank }}'.
+                      </p>
+                      <p>Mark the two questions you combined by checking the checkboxes near the questions. If you wrote 'NA {{ domain_blank }}',
+                        you can leave the checkboxes blank.
+                      </p>
+                      <form
+                        name="mturk_form"
+                        method="post"
+                        id="mturk_form"
+                        action="/mturk/externalSubmit"
+                      >
+                        <input
+                          type="hidden"
+                          value=""
+                          name="assignmentId"
+                          id="assignmentId"
+                        />
+                         <input
+                            type="hidden"
+                            value="{{ split }}"
+                            name="split"
+                            id="split"
+                          />
+                        {% for idx in range(qbank | length) %}
+                        <div class="form-group checkbox-group required group-{{ idx }}">
+                          <label for="q{{ idx }}">
+                            Questions to combine: 
+                              <ul>
+                                <li>
+                                  <input name="usedQ{{ idx }}-0" type="checkbox" value="usedQ{{ idx }}-0" style="margin-right:5px;"><label>{{ qbank[loop.index0][0] }}</label>
+                                </li>
+                                <li>
+                                  <input name="usedQ{{ idx }}-1" type="checkbox" value="usedQ{{ idx }}-1" style="margin-right:5px;"><label>{{ qbank[loop.index0][1] }}</label>
+
+                                </li>
+                                <li>
+                                  <input name="usedQ{{ idx }}-2" type="checkbox" value="usedQ{{ idx }}-2" style="margin-right:5px;"><label>{{ qbank[loop.index0][2] }}</label>
+
+                                </li>
+                          </label>
+                          <input
+                            id="q{{ idx }}"
+                            class="form-control"
+                            type="text"
+                            size=100
+                            placeholder="Write your question here"
+                            name="q{{ idx }}"
+                            required="required"
+                            pattern="^.* {{ domain_blank }}[\.|\s|\?]?.*$"
+                            title="Please re-read the instructions"
+                            oninvalid="this.setCustomValidity('Please Follow Question Instructions (include {{ domain_blank }})')"
+                            onchange="try{setCustomValidity('')}catch(e){}"
+                            oninput="setCustomValidity(' ')"
+                          />
+                          <input
+                            type="hidden"
+                            value="{{ qbank[loop.index0] }}"
+                            name="originalQ{{ idx }}"
+                            id="originalQ{{ idx }}"
+                          />
+                        </div>
+                        {% endfor %}
+                        <input
+                          id="submitButton"
+                          class="btn btn-primary"
+                          type="submit"
+                          value="Submit"
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script language="Javascript">
+              turkSetAssignmentID();
+              $(document).ready(function () {
+                $('#submitButton').click(function() {
+                  for (i = 0; i < {{ qbank | length }}; i++) {
+                    let checked = $(".group-" + i.toString() + " input[type=checkbox]:checked").length;
+                    let text_input = $("#q" + i.toString()).val();
+                    if (checked != 2 && text_input != "NA {{ domain_blank }}") {
+                      alert("Check the checkboxes for the questions you combined in question " + (i+1).toString() + " or write 'NA {{ domain_blank }}'");
+                      return false;
+                    }
+                  }
+                });
+            });
+            </script>
+          </div>
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>900</FrameHeight>
+</HTMLQuestion>

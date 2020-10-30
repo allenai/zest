@@ -214,7 +214,7 @@ code and dependencies.
 #### Training and Evaluation
 
 To run and evaluate the BART baselines, run `./bin/train_bart_run_eval.sh
-/path/to/zest/data 5e-5 15`.  This command first trains BART for 16 epochs with
+/path/to/zest/data 5e-5 15`.  This command first trains BART for 15 epochs with
 learning rate 5e-5, writes out the predictions on the development set to a
 file, and then uses the evaluation script to calculate the official metrics.
 

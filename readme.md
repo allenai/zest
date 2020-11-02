@@ -257,6 +257,7 @@ For public, non-sensitive matters: please file an issue on this repository.
 For private or sensitive inquiries, please contact the authors of
 [paper][paper] directly.
 
+[amti]: https://github.com/allenai/amti
 [black]: https://black.readthedocs.io/en/stable/
 [paper]: TODO
 [pytest]: https://docs.pytest.org/en/latest/

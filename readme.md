@@ -248,7 +248,23 @@ You can also skip slower tests by passing the `--skip-slow` (`-s`) flag:
 If you build off this code, data, or work, please cite [the paper][paper] as
 follows:
 
-    TODO: CITATION TO BE ADDED
+```
+@inproceedings{weller-etal-2020-learning,
+    title = "Learning from Task Descriptions",
+    author = "Weller, Orion  and
+      Lourie, Nicholas  and
+      Gardner, Matt  and
+      Peters, Matthew",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.emnlp-main.105",
+    pages = "1361--1375",
+    abstract = "Typically, machine learning systems solve new tasks by training on thousands of examples. In contrast, humans can solve new tasks by reading some instructions, with perhaps an example or two. To take a step toward closing this gap, we introduce a framework for developing NLP systems that solve new tasks after reading their descriptions, synthesizing prior work in this area. We instantiate this frame- work with a new English language dataset, ZEST, structured for task-oriented evaluation on unseen tasks. Formulating task descriptions as questions, we ensure each is general enough to apply to many possible inputs, thus comprehensively evaluating a model{'}s ability to solve each task. Moreover, the dataset{'}s structure tests specific types of systematic generalization. We find that the state-of-the-art T5 model achieves a score of 12{\%} on ZEST, leaving a significant challenge for NLP researchers.",
+}
+```
 
 ## Contact
 
@@ -259,6 +275,6 @@ For private or sensitive inquiries, please contact the authors of
 
 [amti]: https://github.com/allenai/amti
 [black]: https://black.readthedocs.io/en/stable/
-[paper]: TODO
+[paper]: https://arxiv.org/abs/2011.08115
 [pytest]: https://docs.pytest.org/en/latest/
 [source]: https://github.com/allenai/zest

@@ -18,7 +18,7 @@ Jump to the most relevant section:
 ## Data
 
 You can download the data from
-[https://ai2-datasets.s3-us-west-2.amazonaws.com/zest/zest.zip](https://ai2-datasets.s3-us-west-2.amazonaws.com/zest/zest.zip).
+[https://ai2-public-datasets.s3.amazonaws.com/zest/zest.zip](https://ai2-public-datasets.s3.amazonaws.com/zest/zest.zip).
 This file contains the train, validation and unlabeled test sets. To evaluate
 on the test set, submit your predictions to the
 [leaderboard](https://leaderboard.allenai.org/zest).
